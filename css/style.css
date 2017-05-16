@@ -1,0 +1,402 @@
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+
+.d-flex, .page-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.align-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-centerY-centerX, .page-wrapper {
+  justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.page-wrapper {
+  height: 100%;
+  background: #f7f7f7;
+}
+
+.el-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-image-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-filter: blur(0);
+  -o-filter: blur(0);
+  filter: blur(0);
+  background: #202125;
+}
+
+.main-image-wrapper img {
+  width: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 991px) {
+  .main-image-wrapper img {
+    width: 80%;
+  }
+}
+
+.main-image-wrapper:after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.main-image-wrapper .main-image {
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.main-image-wrapper.overlay:after {
+  opacity: 1;
+}
+
+.main-image-wrapper.overlay .main-image {
+  -webkit-filter: blur(5px);
+  -o-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.menu-btn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 70px;
+  height: 70px;
+  display: block;
+  cursor: pointer;
+  background: #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.menu-btn:hover:after {
+  left: -5px;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+}
+
+.menu-btn:after {
+  width: auto;
+  height: auto;
+  content: "";
+  display: block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.menu-btn .menu-line {
+  display: block;
+  height: 1px;
+  width: 28px;
+  background-color: #ff9800;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  z-index: 99;
+}
+
+.menu-btn .top-line {
+  margin-top: -8px;
+  z-index: 999;
+}
+
+.menu-btn .middle-line {
+  margin-top: 0;
+}
+
+.menu-btn .bottom-line {
+  margin-top: 8px;
+}
+
+.menu-background {
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  overflow: hidden;
+  background: #fff;
+  cursor: default;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.sub-menu {
+  width: 100%;
+  opacity: 0;
+  text-align: right;
+  top: 160px;
+  right: -100%;
+  position: absolute;
+  list-style: none;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+  -moz-transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+  -o-transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+  transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+  /* easeInOutExpo */
+  -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  /* easeInOutExpo */
+}
+
+.sub-menu .sub-menu-links {
+  font-size: 30px;
+  font-weight: 300;
+  color: #05060b;
+  line-height: 55px;
+  position: relative;
+}
+
+.sub-menu .sub-menu-links:before {
+  width: 0;
+  height: 2px;
+  background: #05060b;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.sub-menu .sub-menu-links:hover {
+  text-decoration: none;
+}
+
+.sub-menu .sub-menu-links:hover:before {
+  width: 100%;
+}
+
+.menu-wrapper {
+  width: 400px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.openned .menu-background {
+  width: 3500px;
+  height: 3500px;
+  pointer-events: none;
+}
+
+.openned .menu-btn {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.openned .menu-btn.hover-arrow:hover {
+  transform: rotate(90deg);
+}
+
+.openned .sub-menu {
+  opacity: 1;
+  right: 40px;
+}
+
+.openned .top-line {
+  margin-top: 0;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) rotate(45deg);
+  -o-transform: translateX(-50%) rotate(45deg);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.openned .middle-line {
+  opacity: 0;
+  left: 0;
+}
+
+.openned .bottom-line {
+  margin-top: 0;
+  -webkit-transform: translateX(-50%) rotate(-45deg);
+  -ms-transform: translateX(-50%) rotate(-45deg);
+  -o-transform: translateX(-50%) rotate(-45deg);
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.wrapper-circle {
+  width: 70px;
+  /* Set the size of the progress bar */
+  height: 70px;
+  position: absolute;
+  /* Enable clipping */
+  clip: rect(0px, 70px, 70px, 35px);
+  /* Hide half of the progress bar */
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+/* Set the sizes of the elements that make up the progress bar */
+.circle {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ff9800;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+  position: absolute;
+  clip: rect(0px, 35px, 70px, 0px);
+}
+
+/* Using the data attributes for the animation selectors. */
+/* Base settings for all animated elements */
+div[data-anim~=base] {
+  -webkit-animation-iteration-count: 1;
+  /* Only run once */
+  -webkit-animation-fill-mode: forwards;
+  /* Hold the last keyframe */
+  -webkit-animation-timing-function: linear;
+  /* Linear animation */
+}
+
+.openned .wrapper-circle {
+  -webkit-animation-delay: 0.3s;
+  /* Wait half of the animation */
+  -webkit-animation-name: close-wrapper;
+  /* Keyframes name */
+  z-index: 99;
+}
+
+.openned .circle.left-circle {
+  -webkit-animation-duration: 0.3s;
+  /* Full animation time */
+  -webkit-animation-name: left-spin;
+  -webkit-animation-delay: 0.15s;
+  -o-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+
+.openned .circle.right-circle {
+  -webkit-animation-duration: 0.15s;
+  /* Half animation time */
+  -webkit-animation-name: right-spin;
+  -webkit-animation-delay: 0.15s;
+  -o-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+
+/* Rotate the right side of the progress bar from 0 to 180 degrees */
+@-webkit-keyframes right-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+/* Rotate the left side of the progress bar from 0 to 360 degrees */
+@-webkit-keyframes left-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* Set the wrapper clip to auto, effectively removing the clip */
+@-webkit-keyframes close-wrapper {
+  to {
+    clip: rect(auto, auto, auto, auto);
+  }
+}
